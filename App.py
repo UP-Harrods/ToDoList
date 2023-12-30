@@ -55,3 +55,34 @@ def delete_task(task_id):
 
     connection.commit()
     connection.close()
+
+def main():
+    create_database()
+
+    while True:
+        print("\nTask Management System")
+        print("1. Add Task")
+        print("2. View Tasks")
+        print("3. Delete Task by ID")
+        print("4. Exit")
+
+        choice = input("Enter your choice (1/2/3/4): ")
+
+        if choice == "1":
+            task_name = input("Enter the task name: ")
+            add_task(task_name)
+            print("Task added successfully!")
+        elif choice == "2":
+            view_tasks()
+        elif choice == "3":
+            task_id = input("Enter the task ID to delete: ")
+            delete_task(task_id)
+            print("Task deleted successfully!")
+        elif choice == "4":
+            print("Exiting the application. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please enter 1, 2, 3, or 4.")
+
+if __name__ == "__main__":
+    main()
